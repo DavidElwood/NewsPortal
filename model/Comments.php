@@ -18,10 +18,11 @@ class Comments {
     }
 
     public static function getCommentsCountByNewsID($id) {
-        $query = "SELECT count(id) as count FROM comments WHERE news_id=" . $id;
+        $query = "SELECT count(id) as 'count' FROM comments WHERE news_id=" . $id;
         $db = new Database();
         $q = $db->getOne($query);
         return $q['count'];
     }
 
 }
+?>
