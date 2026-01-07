@@ -6,7 +6,7 @@ class database {
     private $user;
     private $password;
     private $baseName;
-}
+
 
 function __construct() {
     $this->host = 'localhost';
@@ -22,7 +22,7 @@ function __destruct() {
 function connect() {
     if(!$this->conn) {
         try {
-            $this->conn = new PDO('mysql:host='.$this->host.'dbname='.$this->
+            $this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->
             baseName.'', $this->user, $this->password, array (PDO::
             MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
         }
@@ -43,18 +43,21 @@ function getOne($query) {
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $response = $stmt->fetch();  // fetch one row
     return $response;
 }
+
 
 function getAll($query) {
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $response = $stmt->fetchAll();
-    return $response
+    return $response;
 }
 
 function executeRun($query) {
     $response = $this->conn->exec($query);
     return $response;
+}
 }

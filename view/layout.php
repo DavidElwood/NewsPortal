@@ -17,17 +17,17 @@
         <li><a href="#">Kategooriad<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
         <?php
-                Controller::AllCategory();
+           Controller::AllCategory();
         ?>
         </ul>
         </li>
         <li><a href="testError">Info</a></li>
-        <li><a href="./">StardiLeht</a></li>
+        <li><a href="./">Stardileht</a></li>
 
         </ul>
         </nav>
         <section>
-            <div> class = 'divBox'>
+            <div class = 'divBox'>
                 <?php
                 if(isset($content)){
                     echo $content;
@@ -39,7 +39,7 @@
             </div>
         </section>
         <hr>
-        <p style="display:block; text-aling:center;">JKITp24 2026 a. &copy</p>
+        <p style="display:block; text-align:center;">JKITp24 2026 a. &copy</p>
     </body>
 
 </html>

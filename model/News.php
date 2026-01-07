@@ -5,14 +5,14 @@ class News{
         $query = "SELECT * FROM news ORDER BY id DESC LIMIT 3" ;
         $db = new Database();
         $arr = $db->getAll($query);
-        return $arr
+        return $arr;
     }
 
     public static function getAllNews() {
         $query = "SELECT * FROM news ORDER BY id DESC";
         $db = new Database();
         $arr = $db->getAll($query);
-        return $arr
+        return $arr;
     }
 
     public static function getNewsByCategoryID($id) {
