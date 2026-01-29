@@ -20,6 +20,7 @@ class ViewComments {
     public static function CommentsCountWithAncor($count) {
     if ($count > 0)
         echo '<b><a href="#ctable">(' . $count . ')</a></b>';
+<<<<<<< HEAD
     }
 
     public static function CommentsCount($count){
@@ -27,4 +28,13 @@ class ViewComments {
         echo '<b><font color="red">(' . $count . ')</font></b>';
     }
     }
+=======
+}
+
+public static function CommentsCount($count){
+    if ($count > 0) {
+        echo '<b><font color="red">(' . $count . ')</font></b>';
+    }
+}
+>>>>>>> 0824e92c4a971d01030cb4c55b382320e22a553e
 }
