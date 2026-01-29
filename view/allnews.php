@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-<h1>Kõik uudised </h1>
+<h1>ALL NEWS </h1>
 <br>
 
 <?php
