@@ -1,56 +1,52 @@
 <?php
 
-class Register{
-   
+class Register {
 
-    public function registerUser() {
+    public static function registerUser() {
         $controll = array(0 => false, 1 => 'error');
 
-        if (isset($_POST['save']))
-        {
+        if (isset($_POST['save'])) {
+
             $errorString = "";
 
             $name = $_POST['name'];
             $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-            if (!$email)
-            {
+            if (!$email) {
                 $errorString .= "Неправильный email<br />";
             }
 
             $password = $_POST['password'];
             $confirm  = $_POST['confirm'];
 
-            if (!$password || !$confirm || mb_strlen($password) < 6)
-            {
+            if (!$password || !$confirm || mb_strlen($password) < 6) {
                 $errorString .= "Пароль должен быть больше 6 символов<br />";
             }
 
-            if ($password != $confirm)
-            {
+            if ($password != $confirm) {
                 $errorString .= "Пароли не совпадают<br />";
             }
 
-            if (mb_strlen($errorString) == 0)
-            {
-                $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $date = Date("Y-m-d");
+            if (mb_strlen($errorString) == 0) {
 
-                $sql = "INSERT INTO `users` 
-                        (`id`, `username`, `email`, `password`, `status`, `registration_date`, `pass`) 
-                        VALUES 
-                        (NULL, '$name', '$email', '$passwordHash', 'user', '$date', '$password')";
+                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                $date = date("Y-m-d");
+
+                $sql = "INSERT INTO `users`
+                        (`username`, `email`, `password`, `status`, `registration_date`, `pass`)
+                        VALUES
+                        ('$name', '$email', '$passwordHash', 'user', '$date', '$password')";
 
                 $db = new Database();
                 $item = $db->executeRun($sql);
 
-                if ($item)
+                if ($item) {
                     $controll = array(0 => true);
-                else
+                } else {
                     $controll = array(0 => false, 1 => 'error');
-            }
-            else
-            {
+                }
+
+            } else {
                 $controll = array(0 => false, 1 => $errorString);
             }
         }
@@ -58,4 +54,3 @@ class Register{
         return $controll;
     }
 }
-?>

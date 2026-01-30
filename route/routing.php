@@ -21,12 +21,12 @@ elseif ($paths == 'insertcomment' and isset($_GET['comment'],$_GET['id']))
     $response = Controller::InsertComment($_GET['comment'], $_GET['id']);
 }
 
-elseif ($paths == 'registerForm' )
+elseif ($paths == 'registerForm')
 {
     $response = Controller::registerForm();
 }
 
-elseif ($paths == 'registerAnswer' )
+elseif ($paths == 'registerAnswer')
 {
     $response = Controller::registerUser();
 }

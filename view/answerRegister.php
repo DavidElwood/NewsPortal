@@ -5,8 +5,8 @@ if (isset($result)) {
     if ($result[0] == true) {
         ?>
         <div class="container">
-            <div class="alert alert-info">
-                <strong>Пользователь добавлен.</strong>
+            <div class="message success">
+                <strong>User added.</strong>
                 <a href="admin/">Dashboard</a>
             </div>
         </div>
@@ -15,10 +15,10 @@ if (isset($result)) {
     else if ($result[0] == false) {
         ?>
         <div class="container">
-            <div class="alert alert-warning">
-                <strong>Ошибка!</strong>
+            <div class="message error">
+                <strong>Error!</strong>
                 <?php echo $result[1]; ?>
-                <a href="registerForm">Форма регистрации</a>
+                <a href="registerForm">Form registration</a>
             </div>
         </div>
         <?php
